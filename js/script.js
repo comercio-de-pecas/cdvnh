@@ -1,31 +1,36 @@
-// Script base – CDV Peças
+function startVoice() {
+    const SpeechRecognition =
+        window.SpeechRecognition || window.webkitSpeechRecognition;
 
-document.addEventListener("DOMContentLoaded", () => {
-    console.log("Site carregado com sucesso");
-
-  function startVoice() {
-    if (!('webkitSpeechRecognition' in window)) {
-        alert("Seu navegador não suporta reconhecimento de voz.");
+    if (!SpeechRecognition) {
+        alert("Seu navegador não suporta pedido por voz. Use o Chrome.");
         return;
     }
 
-    const recognition = new webkitSpeechRecognition();
+    const recognition = new SpeechRecognition();
     recognition.lang = "pt-BR";
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 1;
+
     recognition.start();
 
-    recognition.onresult = function(event) {
+    recognition.onstart = () => {
+        console.log("Microfone ativado");
+    };
+
+    recognition.onresult = (event) => {
         const texto = event.results[0][0].transcript;
+
         const mensagem = encodeURIComponent(
-            "Olá, gostaria de saber sobre a seguinte peça: " + texto
+            "Olá, gostaria de consultar a seguinte peça: " + texto
         );
 
         window.location.href =
             "https://wa.me/555199319733?text=" + mensagem;
     };
 
-    recognition.onerror = function() {
-        alert("Não foi possível captar o áudio.");
+    recognition.onerror = (event) => {
+        alert("Erro no reconhecimento de voz. Tente novamente.");
+        console.error(event.error);
     };
 }
-
-});
