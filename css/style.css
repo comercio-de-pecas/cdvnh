@@ -44,39 +44,26 @@ body {
 }
 
 /* HERO */
-.hero {
-    position: relative;
+@media (max-width: 768px) {
+
+    .hero {
+        height: auto;
+        padding: 60px 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .btn-primary {
+        width: 100%;
+    }
 }
 
-.hero::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.5);
-}
-
-.hero-content {
-    position: relative;
-    z-index: 1;
-}
-
-
-.hero-content {
-    background: rgba(0,0,0,0.65);
-    padding: 30px;
-    border-radius: 10px;
-    text-align: center;
-    color: #fff;
-}
-
-.hero-content h1 {
-    font-size: 2rem;
-    margin-bottom: 10px;
-}
-
-.hero-content p {
-    margin-bottom: 20px;
-}
 
 /* BOTÕES */
 .btn-primary {
@@ -206,4 +193,24 @@ body {
     box-shadow: 0 8px 20px rgba(0,0,0,0.35);
 
     z-index: 9999; /* MUITO IMPORTANTE */
+}
+@media (max-width: 768px) {
+
+    .container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .logo {
+        height: 45px;
+    }
+
+    .brand-extra {
+        height: 35px;
+    }
+
+    .btn-header {
+        width: 100%;
+        text-align: center;
+    }
 }
