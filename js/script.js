@@ -33,4 +33,5 @@ function startVoice() {
         alert("Erro no reconhecimento de voz. Tente novamente.");
         console.error(event.error);
     };
+navigator.mediaDevices.getUserMedia({ audio: true })
 }
