@@ -164,35 +164,52 @@ body {
     text-align: center;
 }
 
+.voice-float {
+    position: fixed;
+    bottom: 90px; /* FICA ACIMA DO WHATS */
+    right: 20px;
+
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+
+    background: #111;
+    color: #25d366;
+
+    font-size: 26px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid #25d366;
+    cursor: pointer;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+    z-index: 9999;
+}
+
+
 .whatsapp-float {
     position: fixed;
     bottom: 20px;
     right: 20px;
+
     background: #25d366;
     color: #fff;
+
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    font-size: 28px;
+
+    font-size: 26px;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    text-decoration: none;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-    z-index: 999;
-    transition: transform 0.2s ease;
-}
 
-.whatsapp-float:hover {
-    transform: scale(1.1);
-}
-.btn-voice {
-    margin-top: 15px;
-    background: transparent;
-    color: #fff;
-    border: 2px solid #25d366;
-    padding: 12px 20px;
-    border-radius: 6px;
-    font-weight: bold;
-    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+
+    z-index: 9999; /* MUITO IMPORTANTE */
 }
