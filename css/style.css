@@ -166,3 +166,13 @@ body {
 .whatsapp-float:hover {
     transform: scale(1.1);
 }
+.btn-voice {
+    margin-top: 15px;
+    background: transparent;
+    color: #fff;
+    border: 2px solid #25d366;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
