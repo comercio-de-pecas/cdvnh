@@ -283,3 +283,26 @@ h2 {
 .voice-status.show {
     display: block;
 }
+.how-it-works {
+    padding: 50px 20px;
+    text-align: center;
+    background: #fff;
+}
+
+.steps {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.step {
+    max-width: 220px;
+    font-weight: bold;
+}
+
+.step span {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 10px;
+}
