@@ -1,6 +1,7 @@
 const micBtn = document.getElementById("micBtn");
 
-function startVoice() {
+micBtn.addEventListener("click", () => {
+
     const SpeechRecognition =
         window.SpeechRecognition || window.webkitSpeechRecognition;
 
@@ -12,8 +13,13 @@ function startVoice() {
     const recognition = new SpeechRecognition();
     recognition.lang = "pt-BR";
     recognition.interimResults = false;
+    recognition.maxAlternatives = 1;
 
     recognition.start();
+
+    recognition.onstart = () => {
+        console.log("🎤 Microfone ativado");
+    };
 
     recognition.onresult = (event) => {
         const texto = event.results[0][0].transcript;
@@ -26,16 +32,9 @@ function startVoice() {
             "https://wa.me/555199319733?text=" + mensagem;
     };
 
-    recognition.onerror = () => {
-        alert("Erro ao capturar o áudio. Tente novamente.");
+    recognition.onerror = (event) => {
+        alert("Não conseguimos captar sua voz. Tente novamente.");
+        console.error(event.error);
     };
-}
 
-micBtn.addEventListener("click", async () => {
-    try {
-        await navigator.mediaDevices.getUserMedia({ audio: true });
-        startVoice();
-    } catch (err) {
-        alert("Permissão de microfone negada.");
-    }
 });
