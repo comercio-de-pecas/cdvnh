@@ -4,14 +4,15 @@
     box-sizing: border-box;
     font-family: Arial, sans-serif;
 }
-h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-}
 
 body {
     background: #fff;
     color: #222;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
 }
 
 /* CONTAINER */
@@ -37,40 +38,46 @@ body {
 .btn-header {
     background: #25d366;
     color: #fff;
-    padding: 10px 18px;
-    border-radius: 6px;
+    padding: 12px 20px;
+    border-radius: 8px;
     text-decoration: none;
     font-weight: bold;
 }
 
 /* HERO */
-@media (max-width: 768px) {
-
-    .hero {
-        height: auto;
-        padding: 60px 20px;
-    }
-
-    .hero-content h1 {
-        font-size: 1.5rem;
-    }
-
-    .hero-content p {
-        font-size: 1rem;
-    }
-
-    .btn-primary {
-        width: 100%;
-    }
+.hero {
+    background: url('../images/banner.jpg') center/cover no-repeat;
+    min-height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
 }
 
+.hero-content {
+    background: rgba(0,0,0,0.65);
+    padding: 30px;
+    border-radius: 14px;
+    text-align: center;
+    color: #fff;
+    max-width: 520px;
+}
 
-/* BOTÕES */
+.hero-content h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.hero-content p {
+    margin-bottom: 20px;
+}
+
+/* BOTÃO PRINCIPAL */
 .btn-primary {
     background: #25d366;
     color: #fff;
-    padding: 14px 22px;
-    border-radius: 6px;
+    padding: 15px 25px;
+    border-radius: 10px;
     text-decoration: none;
     font-weight: bold;
     display: inline-block;
@@ -80,13 +87,14 @@ body {
 .trust {
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 25px;
     padding: 25px;
     background: #f2f2f2;
     font-weight: bold;
+    flex-wrap: wrap;
 }
 
-/* VEHICLES */
+/* VEÍCULOS */
 .vehicles-section {
     padding: 50px 20px;
     text-align: center;
@@ -94,23 +102,22 @@ body {
 
 .vehicles {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 20px;
     margin-top: 30px;
 }
 
 .vehicle-card {
-    border: none;
-    border-radius: 12px;
+    border-radius: 14px;
     overflow: hidden;
+    background: #fff;
     box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-    transition: transform 0.2s ease;
+    transition: transform 0.25s ease;
 }
 
 .vehicle-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-6px);
 }
-
 
 .vehicle-card img {
     width: 100%;
@@ -126,7 +133,7 @@ body {
     display: block;
     background: #25d366;
     color: #fff;
-    padding: 12px;
+    padding: 14px;
     text-decoration: none;
     font-weight: bold;
 }
@@ -139,10 +146,6 @@ body {
     text-align: center;
 }
 
-.cta h2 {
-    margin-bottom: 10px;
-}
-
 /* FOOTER */
 .footer {
     background: #000;
@@ -151,7 +154,45 @@ body {
     text-align: center;
 }
 
-.voice-float::after {
+/* BOTÃO WHATSAPP */
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25d366;
+    color: #fff;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    font-size: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+    z-index: 9999;
+}
+
+/* BOTÃO MICROFONE */
+.mic-float {
+    position: fixed;
+    bottom: 95px;
+    right: 20px;
+    background: #111;
+    color: #fff;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+    z-index: 9999;
+}
+
+.mic-float::after {
     content: "Pedido por voz";
     position: absolute;
     right: 70px;
@@ -160,57 +201,52 @@ body {
     padding: 6px 10px;
     border-radius: 6px;
     font-size: 12px;
-    white-space: nowrap;
     opacity: 0;
     transition: opacity 0.2s;
+    white-space: nowrap;
 }
 
-.voice-float:hover::after {
+.mic-float:hover::after {
     opacity: 1;
 }
 
-
-
-.whatsapp-float {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-
-    background: #25d366;
-    color: #fff;
-
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-
-    font-size: 26px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    text-decoration: none;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.35);
-
-    z-index: 9999; /* MUITO IMPORTANTE */
-}
+/* MOBILE FIRST */
 @media (max-width: 768px) {
 
     .container {
         flex-direction: column;
-        gap: 10px;
+        gap: 12px;
+        text-align: center;
     }
 
     .logo {
         height: 45px;
     }
 
-    .brand-extra {
-        height: 35px;
-    }
-
     .btn-header {
         width: 100%;
-        text-align: center;
+    }
+
+    .hero {
+        min-height: auto;
+        padding: 60px 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 1.5rem;
+    }
+
+    .btn-primary {
+        width: 100%;
+    }
+
+    .mic-float {
+        bottom: 90px;
+        right: 15px;
+    }
+
+    .whatsapp-float {
+        bottom: 20px;
+        right: 15px;
     }
 }
